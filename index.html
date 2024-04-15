@@ -1,50 +1,73 @@
 <html>
 <head>
-<title>JociroPY</title>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-image: url("imagen.png");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        animation: fadeIn 2s ease-in-out;
-    }
-    .container {
-        max-width: 800px;
-        margin: 50px auto;
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        border-radius: 10px;
-        animation: slideIn 2s ease-in-out;
-    }
-    @keyframes slideIn {
-        from {
-            transform: translateY(-100%);
+    <title>JociroPY</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("imagen.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: fadeIn 2s ease-in-out;
         }
-        to {
-            transform: translateY(0);
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 90px;
         }
-    }
-</style>
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .image-container img {
+            width: 100px;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1 align="center">JOSUÉ CLAROS ROCA</h1>
-	<h2 align="CENTER"><U>LISTA CON VIÑETAS</U></h2>
-    <ul>
-        <li>PRIMER ELEMENTO</li>
-        <li>SEGUNDO ELEMENTO</li>
-        <li>TERCER ELEMENTO</li>
-    </ul>
-    <h2 align="CENTER"><U>LISTA CON NUMERACIÓN</U></h2>
-    <ol>
-        <li>PRIMER ELEMENTO</li>
-        <li>SEGUNDO ELEMENTO</li>
-        <li>TERCER ELEMENTO</li>
-    </ol>
-</div>
+    <div class="container">
+        <h1 align="center">JOSUÉ CLAROS ROCA</h1>
+        <h2 align="CENTER"><U>LISTA CON VIÑETAS</U></h2>
+        <ul>
+            <li>PRIMER ELEMENTO</li>
+            <li>SEGUNDO ELEMENTO</li>
+            <li>TERCER ELEMENTO</li>
+        </ul>
+        <h2 align="CENTER"><U>LISTA CON VIÑETAS</U></h2>
+        <ol>
+            <li>PRIMER ELEMENTO</li>
+            <li>SEGUNDO ELEMENTO</li>
+            <li>TERCER ELEMENTO</li>
+        </ol>
+        <div class="image-container">
+            <h4>IMAGEN UTILIZADA PARA EL FONDO:</h4>
+            <img src="imagen.png" alt="Imagen utilizada">
+        </div>
+        <div class="footer">
+            <em><u><b>ESTUDIANTE: CLAROS ROCA JOSUÉ<br>
+            MATERIA: DISEÑO WEB<br>
+            FECHA DE ENTREGA: 15/ABRIL/2024<br>
+            DOCENTE: ING. JIMENEZ VEIZAGA LILI<br>
+            UNIVERSIDAD PRIVADA DOMINGO SAVIO - 2024
+        </div>
+    </div>
 </body>
 </html>
