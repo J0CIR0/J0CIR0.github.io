@@ -1,24 +1,84 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Página Web</title>
+  <title>Alexander Flores Paco</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0a1f44;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 18px;
+      color: #ccc;
+    }
+    .contenedor-elementos {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .elemento {
+      width: calc(30% - 20px);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    iframe, img{
+      max-width: 100%;
+      height: auto;
+    }
+    iframe {
+      width: 100%;
+      height: 70vh;
+    }
+    audio{
+      width: 100%;
+      display: block;
+      margin: 50% auto 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .elemento {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .elemento {
+        width: calc(100% - 20px);
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Mi Página Web</h1>
-
-  <!-- Vídeo -->
-  <video width="320" height="240" controls>
-    <source src="video.mp4" type="video/mp4">
-  </video>
-
+  <h1>Tarea: 2 - Alexander Flores Paco</h1>
+  <div class="contenedor-elementos">
+    <div class="elemento">
+      <h2>Vídeo</h2>
+      <iframe src="https://www.youtube.com/embed/kN1XP-Bef7w?si=7gstQUOXjt7XRef7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="elemento">
+      <h2>Audio</h2>
       <audio controls>
-        <source src="C:\Users\SCPC602\Downloads\no-hay-plata.mp3" type="audio/mp3">
+        <source src="https://mp3teca.app/-/aac/96/57379_96.m4a" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
       </audio>
-
-  <!-- Gif -->
-  <img src="gifff.gif" alt="Mi GIF">
-
+    </div>
+    <div class="elemento">
+      <h2>Gif</h2>
+      <img src="https://d6f6d0kpz0gyr.cloudfront.net/uploads/images-archive/Blog/Gifs/coding.gif?mtime=20200914144127&focal=none" alt="Descripción del GIF">
+    </div>
+  </div>
 </body>
 </html>
