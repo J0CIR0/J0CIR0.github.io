@@ -9,42 +9,35 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             padding: 0;
-            background-color: #222; /* Fondo más oscuro */
-            color: #fff; /* Texto blanco */
-            text-align: center; /* Centrar el contenido */
+            background-color: #222;
+            color: #fff;
+            text-align: center;
         }
-
         h1, h2 {
-            color: #fff; /* Texto blanco */
+            color: #fff;
         }
-
-        /* Estilo para las secciones */
         .section {
-            background-color: #333; /* Color de fondo para las secciones */
+            background-color: #333;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-            margin: 20px auto; /* Centrar horizontalmente */
-            max-width: 640px; /* Ancho máximo */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px auto;
+            max-width: 640px;
         }
-
-        video, audio, img {
-            margin: 20px auto; /* Centrar horizontalmente */
+        video, img {
+            margin: 20px auto;
             display: block;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 100%; /* Ajustar al ancho del contenedor */
-            height: auto; /* Mantener la proporción */
+            max-width: 100%;
+            height: auto;
         }
-
         img {
             transition: transform 0.3s ease;
         }
-
         img:hover {
             transform: scale(1.05);
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -53,33 +46,26 @@
                 opacity: 1;
             }
         }
-
         h1, h2, .section, video, audio, img {
             animation: fadeIn 1s ease;
         }
-
         .image{
-            height: auto; /* Ajustar la altura automáticamente */
-            max-height: 500px; /* Altura máxima */
+            height: auto;
+            max-height: 500px;
         }
-
-        /* Estilos para el pie de página */
         footer {
             margin-top: 50px;
             padding: 20px;
             background-color: #333;
             color: #fff;
         }
-
         footer p {
             margin: 0;
         }
-
-        /* Estilos específicos para pantallas pequeñas */
         @media screen and (max-width: 640px) {
             .section {
-                max-width: 100%; /* Ancho máximo en pantallas pequeñas */
-                margin: 20px 0; /* Ajuste de margen */
+                max-width: 100%;
+                margin: 20px 0;
             }
         }
     </style>
@@ -89,7 +75,6 @@
         <h1>Josue Claros Roca</h1>
         <h2>Actividad 2</h2>
     </div>
-
     <div class="section">
         <h2>Este es el Video</h2>
         <video width="640" height="360" controls>
@@ -105,17 +90,14 @@
             Tu navegador no soporta la etiqueta de audio.
         </audio>
     </div>
-
     <div class="section">
         <h2>Esta es la Imagen</h2>
         <img src="llllll.png" alt="Descripción de la imagen" class="image">
     </div>
-
     <div class="section">
         <h2>Este es el GIF</h2>
         <img src="https://th.bing.com/th/id/R.18a4949fc9c8067172d3b96e302e7097?rik=%2fLZCQFlB6A7KlQ&pid=ImgRaw&r=0" alt="Descripción del GIF">
     </div>
-
     <footer>
         <p>Estudiante: Claros Roca Josue</p>
         <br>
