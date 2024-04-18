@@ -3,30 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CREANDO</title>
+    <title>Zahid Medina Rojas
+    </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #000;
+        }
+        
+        *{
+            color: #fff;
+            align-items: center;
+            align-content: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 8px 8px 0 0;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        .media-container {
+            margin-top: 20px;
+            text-align: center;
+            overflow: hidden;
+            border: 10px solid #000;
+            box-sizing: border-box;
+        }
+
+        .media-container img {
+            max-width: 100%;
+            border-radius: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fadeIn {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Zahid</h1>
+        </header>
 
-    <h1>BIENVENIDO A MÍ PAGINA WED</h1>
-    
-    <!-- Vídeo -->
-    <video width="320" height="240" controls>
-        <source src="C:\Users\SCPC601\Documents\29c8d7d2-9217-423f-af74-480f3f6f681d.mp4" type="video/mp4">
-        Tu navegador no soporta el elemento de vídeo.
-    </video>
-    
-    <br><br>
-    
-    <!-- Audio -->
-    <audio controls>
-        <source src="C:\Users\SCPC601\Downloads\fsdfsdfsdfsd (1).mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-    
-    <br><br>
-    
-    <!-- Gif -->
-    <img src="DBSZ_Top_-_Steam_Gif_Breath_Taking_3D_Fight.gif" alt="Mi gif">
-    
+        <section>
+            <h2>GIF</h2>
+            <div class="media-container fadeIn">
+                <img src="https://1.bp.blogspot.com/-4Q8cuX8et0w/XlPs59l0LrI/AAAAAAAAU-Q/A2NioJfXQY0pavFPS9INBPPv70xxU5zPACLcBGAsYHQ/s1600/api-c99e353f761d318322c853c03ebcf21b.gif" alt="Mi gif">
+            </div>
+        </section>
+
+        <section>
+            <h2>Vídeo</h2>
+            <div class="media-container fadeIn">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/p28CN-KXB3k?si=QU3HT5jedsr8fClT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section>
+            <h2>Audio</h2>
+            <div class="media-container fadeIn">
+                <audio controls>
+                    <source src="https://dl.musopen.org/recordings/f17b78f1-92c5-4106-a61a-965cfffd9daf.mp3?filename=Violin+Concerto+in+E+major%2C+RV+269+%27Spring%27+-+III.+Allegro.mp3&preview" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
