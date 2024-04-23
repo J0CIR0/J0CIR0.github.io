@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Josue Claros Roca</title>
     <style>
-        table {
-            margin: 0 auto;
-            border-collapse: collapse;
+        body {
             background: url('fondito.png') no-repeat center center fixed;
             background-size: cover;
+            animation: backgroundAnimation 20s infinite alternate;
+        }
+        @keyframes backgroundAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+        table {
+            margin: 50px auto;
+            border-collapse: collapse;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            animation: tableAnimation 3s ease-in-out;
+            border-color:black
+        }
+        @keyframes tableAnimation {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(1); }
         }
         th, td {
             padding: 20px;
@@ -35,6 +48,10 @@
         .link-image {
             width: 150px;
             height: 150px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .link-image:hover {
+            transform: scale(1.1);
         }
         .highlight {
             list-style-type: circle;
@@ -46,8 +63,8 @@
     <table border="3">
         <tr>
             <th>Bolivianos, el hado propicio<br>coronó nuestros votos y anhelo;<br>es ya libre, ya libre este suelo,<br>ya cesó su servil condición.</th>
-            <td><img src="https://www.ibolivia.org/escudo-de-bolivia" alt="Escudo de Bolivia" class="link-image"></td>
-            <td><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b6d51e0e-60e6-4007-a201-046d9cf1b094/dd0lggz-f97ee13f-9c88-4980-a2f7-d2c7582fe21f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2I2ZDUxZTBlLTYwZTYtNDAwNy1hMjAxLTA0NmQ5Y2YxYjA5NFwvZGQwbGdnei1mOTdlZTEzZi05Yzg4LTQ5ODAtYTJmNy1kMmM3NTgyZmUyMWYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.C4Bm3aRr5MVkg4_yEZu8KAvFgIJmXGABCMysyCWSoTY" alt="Escarapela" class="link-image"></td>
+            <td><img src="https://www.ibolivia.org/images/escudo-de-bolivia.jpg" alt="Escudo de Bolivia" class="link-image"></></td>
+            <td><a href="https://es.wikipedia.org/wiki/Escarapela_de_Bolivia" target="_blank"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b6d51e0e-60e6-4007-a201-046d9cf1b094/dd0lggz-f97ee13f-9c88-4980-a2f7-d2c7582fe21f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2I2ZDUxZTBlLTYwZTYtNDAwNy1hMjAxLTA0NmQ5Y2YxYjA5NFwvZGQwbGdnei1mOTdlZTEzZi05Yzg4LTQ5ODAtYTJmNy1kMmM3NTgyZmUyMWYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.C4Bm3aRr5MVkg4_yEZu8KAvFgIJmXGABCMysyCWSoTY" alt="Escarapela" class="link-image"></a></td>
         </tr>
         <tr>
             <td class="highlight">Platos típicos de Bolivia</td>
