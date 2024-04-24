@@ -704,6 +704,7 @@ img.certificado_platzi {
     min-width: 35rem;
     max-width: 25rem;
     box-shadow: 0 10px 16px -6px rgb(5 5 5 / 30%), 0 25px 10px -24px rgb(5 5 5 / 10%);
+    margin: 20px;
 }
 
 
@@ -776,23 +777,11 @@ img.certificado_platzi {
     cursor: pointer;
 }
 
-.btn_demo {
-    padding: .9rem 0;
-    border: none;
-    background-color: var(--beaver);
-    color: var(--eerie-black);
-}
-
 .btn_repo {
     padding: .8rem 0;
     background: none;
     color: var(--beaver);
     border: 1px solid var(--beaver);
-}
-
-.btn_demo img {
-    width: 2rem;
-    margin-right: .8rem;
 }
 
 .container_btn--proyectos .btn_demo:hover {
@@ -813,7 +802,7 @@ img.certificado_platzi {
 }
 
 .contacto {
-    background-color: var(--eerie-black);
+    background-color: var(--jet);
     width: 100%;
     height: auto;
     padding: 0 2rem 5rem 2rem;
@@ -835,7 +824,7 @@ img.certificado_platzi {
 
 .container--contacto {
     width: 100%;
-    background-color: var(--jet);
+    background-color: var(--eerie-black);
     border-radius: 24px;
     padding: 3rem;
     position: relative;
@@ -943,7 +932,7 @@ img.certificado_platzi {
 }
 
 footer {
-    background-color: var(--jet);
+    background-color: var(--black);
 }
 
 .contianer--footer {
