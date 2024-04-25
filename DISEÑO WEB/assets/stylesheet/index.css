@@ -310,7 +310,7 @@ span+span {
     color: var(--beaver);
     background-color: var(--jet);
     width: 100%;
-    animation: typing 4s steps(50) alternate infinite;
+    animation: typing 4s steps(5) alternate infinite;
 }
 
 .container_parrafo-info {
