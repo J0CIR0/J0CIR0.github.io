@@ -221,11 +221,11 @@ span+span {
     padding: 12rem 0 5rem 0;
 }
 .image_inicio {
-    max-width: 60%;
+    max-width: 50%;
     transition: .4s;
     animation: image 2s;
     border-radius: 10px;
-    box-shadow: 0 30px 36px 36px rgb(5 5 5 / 50%), 0 25px 10px -24px rgb(5 5 5 / 50%);
+    box-shadow: 0 0px 20px 10px rgb(5 5 5 / 50%);
 }
 .inicio_info {
     display: flex;
