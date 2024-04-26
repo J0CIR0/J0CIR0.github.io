@@ -43,9 +43,9 @@ div.btn {
     object-fit: contain;
     width: 350px;
     height: 350px;
-    border-radius: 10px;
-    box-shadow: 0 30px 36px 36px rgb(5 5 5 / 50%), 0 25px 10px -24px rgb(5 5 5 / 50%);
-    margin-top: 50px;
+    border-radius: 50px;
+    box-shadow: 0 0px 30px 10px rgb(5 5 5 / 50%);
+    margin-top: 90px;
 }
 .inicio_info {
     width: 40%;
