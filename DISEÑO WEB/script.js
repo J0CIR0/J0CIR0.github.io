@@ -54,7 +54,8 @@ document.querySelector('.go-top-contenedor').addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
-const $form = document.querySelector(`#form`);
+
+<!--const $form = document.querySelector(`#form`);
 const $successMessage = document.querySelector(`#success-message`);
 $form.addEventListener(`submit`, handlesubmit);
 async function handlesubmit(event) {
@@ -74,4 +75,4 @@ async function handlesubmit(event) {
             $successMessage.style.display = 'none';
         }, 5000);
     }
-}
+}-->
