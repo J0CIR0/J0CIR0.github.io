@@ -55,13 +55,13 @@ document.querySelector('.go-top-contenedor').addEventListener('click', () => {
     });
 });
 
-<!--const $form = document.querySelector(`#form`);
+const $form = document.querySelector(`#form`);
 const $successMessage = document.querySelector(`#success-message`);
 $form.addEventListener(`submit`, handlesubmit);
 async function handlesubmit(event) {
     event.preventDefault();
     const form = new FormData(this);
-    const response = await fetch("https://formspree.io/f/xrgnrrnz", {
+    const response = await fetch("htt://formspree.io/f/xrgnrrnz", {
         method: "POST",
         body: form,
         headers: {
@@ -75,4 +75,4 @@ async function handlesubmit(event) {
             $successMessage.style.display = 'none';
         }, 5000);
     }
-}-->
+}
