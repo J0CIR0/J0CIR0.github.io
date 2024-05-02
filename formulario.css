@@ -53,7 +53,6 @@ form select {
 }
 
 form input[type="submit"] {
-    background-color: #4CAF50;
     color: #fff;
     border: none;
     padding: 10px 23px;
@@ -62,9 +61,6 @@ form input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-form input[type="submit"]:hover {
-    background-color: #45a049;
-}
 
 footer {
     text-align: center;
