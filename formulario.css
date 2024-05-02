@@ -21,7 +21,7 @@ nav h2 {
 }
 
 form {
-    max-width: 600px;
+    max-width: 350px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
@@ -38,6 +38,11 @@ form label {
     margin-bottom: 5px;
 }
 
+.hola{
+    margin-left: 20px;
+    margin-top: -19px;
+}
+
 form input[type="text"],
 form input[type="email"],
 form select {
@@ -51,7 +56,7 @@ form input[type="submit"] {
     background-color: #4CAF50;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 23px;
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -64,7 +69,6 @@ form input[type="submit"]:hover {
 footer {
     text-align: center;
     margin-top: 20px;
-    background-color:#6ab481;
     height: 50px;
 }
 
@@ -92,27 +96,16 @@ form {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 6px;
-    width: 250px;
-    height: 35px;
-    font-size: 1em;
-    text-align: center;
-    line-height: 50%;
+    width: 100%;
+    font-size: 16px;
 }
-
-
 
 .registrar-btn:hover {
     background-color: #69b33c;
 }
 
-form input[type="checkbox"],
-form input[type="radio"] {
-    vertical-align: middle;
-    margin-top: 0;
-}
-
-.radio-container label,
-.checkbox-container label {
-    margin-left: 20px;
-    margin-top: -17px;
+@media screen and (max-width: 600px) {
+    form input[type="submit"] {
+        width: 100%;
+    }
 }
