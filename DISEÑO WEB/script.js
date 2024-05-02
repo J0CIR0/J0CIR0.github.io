@@ -61,7 +61,7 @@ $form.addEventListener(`submit`, handlesubmit);
 async function handlesubmit(event) {
     event.preventDefault();
     const form = new FormData(this);
-    const response = await fetch("htt://formspree.io/f/xrgnrrnz", {
+    const response = await fetch("https://formspree.io/f/xrgnrrnz", {
         method: "POST",
         body: form,
         headers: {
