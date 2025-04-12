@@ -1,138 +1,207 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lee todo</title>
+  <title>Mi mas bonita casualidad</title>
   <style>
     body {
       margin: 0;
-      overflow: hidden;
-    }
-    .popup-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      padding: 0;
+      background-color: #ffd4e5;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: rgb(58, 10, 22);
-    }.lyrics-box {
-  position: relative;
-  padding: 20px;
-  background-color: #ecc0c0; 
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: auto;
-}
+      flex-direction: column;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+    
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+    
+    .popup-container {
+      background-color: #ffeef5;
+      padding: 20px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      max-width: 90%;
+      z-index: 10;
+      margin-top: 200px;
+    }
 
-.close-btn {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  cursor: pointer;
-  background-color: rgb(250, 245, 245);
-  border-radius: 50%;
-  padding: 5px;
-  z-index: 1; 
-}
+    .lyrics-large {
+      font-size: 1.5em;
+      color: #5a1a2c;
+    }
 
-.close-icon {
-  font-size: 30px; 
-  color: white; 
-}
+    .close-btn {
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      background-color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 20;
+    }
 
-.lyrics-large {
-  font-size: 40px;
-  text-align: center;
-  padding: 10px; 
-}
+    .close-icon {
+      font-size: 24px;
+    }
 
-.flower {
-  position: absolute;
-  font-size: 30px;
-  animation: float 5s linear infinite;
-}
+    .heart-container {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      top: 50px;
+      left: 45%; 
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
 
-@keyframes float {
-  0% {
-    transform: translateY(100vh);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
-}
+    .flower {
+      position: absolute;
+      font-size: 24 px;
+      animation: flowerFloat 3s ease-in-out infinite;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
 
+    @keyframes flowerFloat {
+      0%, 100% {
+        transform: scale(1) rotate(0deg);
+      }
+      25% {
+        transform: scale(1.1) rotate(3deg);
+      }
+      50% {
+        transform: scale(1.2) rotate(-2deg);
+      }
+      75% {
+        transform: scale(1.1) rotate(1deg);
+      }
+    }
+    @keyframes bouquetReveal {
+      0% {
+        transform: translateX(-50%) scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="popup-container">
-    <div class="lyrics-box">
-      <span class="close-btn" onclick="closeAlert()"><span class="close-icon">⭐</span></span>
-      <p class="lyrics-large">ve tocando la estrella</p>
+  <div class="page-container">
+    <div class="heart-container" id="heartContainer"></div>
+    
+    <div class="popup-container">
+      <p class="lyrics-large" id="lyricText">Ve tocando la estrella</p>
+      <div class="close-btn" onclick="closeAlert()">
+        <span class="close-icon">⭐</span>
+      </div>
     </div>
-  </div>  <script>
-    var currentIndex = 0;
-    var finalMessageShown = false;
+  </div>
 
-    function createFlowers() {
-      for (let i = 0; i < 100; i++) {
-        let flower = document.createElement("div");
-        flower.classList.add("flower");
-        flower.innerHTML = "🌸"; // Flor emoji
-        flower.style.left = Math.random() * 100 + "vw";
-        flower.style.top = Math.random() * 100 + "vh";
-        flower.style.animationDuration = (Math.random() * 3 + 3) + "s";
-        document.body.appendChild(flower);
-        setTimeout(() => flower.remove(), 5000);
-      }
-    }
+  <script>
+    let currentIndex = 0;
+    let finalMessageShown = false;
+
+    const songLines = [
+      "Feliz cumple cariñooooo, te deseo lo mejor en este día",
+      "Tal vez hoy no sea tu mejor cumpleaños",
+      "Tal vez no sintas muchas ganas de celebrarlo",
+      "Tal vez pensaste en no hacer nada, y que sea un dia normal como me dijiste",
+      "Pero aun así, este día sigue siendo especial",
+      "Tal vez no lo creas así, pero para los que te queremos si es",
+      "Quisiera expresar no solo mi cariño, tambien mi admiración",
+      "Se por lo que estás pasando",
+      "Y se que no es nada fácil",
+      "Aún asíseguis adelante",
+      "Hoy no podre estar contigo",
+      "Tal vez sea así por un tiempo",
+      "No lo sabemos",
+     "Pero los días que estuve, fueron los mejores de mi vida",
+      "Mil gracias",
+      "Siempre te amaré por eso",
+      "Aprendí mucho de vos",
+      "O",
+      "Hiciste que aprenda a quererte",
+      "Sinceramente no se que aprendiste de mi aún",
+      "JAJAJAJAJ",
+      "En fin, espero que estés mejor, espero que tu mamá este bien",
+      "Tu hermana y tu cuñado también",
+      "Y por favor, queda bien con papá,  tal vez no lo merezca como decis",
+      "Pero para esta bien con uno mismo, es necesario estar bien con los demás",
+      "Pero buenoo, casi me olvidoo",
+      "En mi vida regalé una flor, algun dia aprenderé HAJAJJAA",
+      "Nose ni en donde se compra pipipi, pero lo que si se",
+      "Es programar JAJAJAJAJ, esto nunca te lo hicieron, ni te lo van hacer 😼😼",
+      "FELIZ CUMPLEAÑOS, TE AMO (apreta una vez mas la estrella), GRACIAS POR TODOOO"
+    ];
 
     function closeAlert() {
-      var lyrics = document.querySelector(".lyrics-large");
-      var songLines = [
-        "¡Feliz cumpleañooooooos!",
-        "Tal vez hoy no sea el mejor día...",
-        "Tal vez no sientas muchas ganas de celebrar.",
-        "Tal vez pensaste en no hacer nada.",
-        "Pero aun así, este día sigue siendo especial.",
-        "Porque hoy llegaste al mundo...",
-        "Y eso, nunca será poco.",
-        "Quisiera aprovechar este momento...",
-        "No solo para decirte cuánto te quiero,",
-        "sino también cuánto te admiro.",
-        "Sé por lo que estás pasando,",
-        "y sé que no es nada fácil.",
-        "Aun así, seguís de pie.",
-        "Y eso, te hace increíble.",
-        "Hoy no estoy ahí contigo...",
-        "Pero los días que compartimos fueron muy importantes para mí.",
-        "Gracias por todo lo que me diste,",
-        "por las risas, las charlas, y hasta los silencios.",
-        "Siempre te llevaré en mi corazón.",
-        "Y siempre te amaré por eso.",
-        "Hoy, deseo que puedas tener un momento de paz.",
-        "De calma, de amor... aunque sea contigo misma.",
-        "Intentá descansar, cuidarte, y sonreír si podés.",
-        "Ah sí... casi lo olvido JAJAJAJA",
-        "Nunca regalé flores en mi vida",
-        "Algún día lo haré, quizás con un ramo de verdad.",
-        "Pero lo que sí sé hacer... es programar JAJAJA",
-        "Y probablemente esto nadie te lo hizo antes JAJA x2",
-        "Así que... aquí están tus flores digitales:",
-        "FELIZ CUMPLEAÑOS, TE AMO"
-      ];
-
+      const lyricText = document.getElementById("lyricText");
       if (currentIndex < songLines.length - 1) {
-        lyrics.textContent = songLines[++currentIndex];
+        lyricText.textContent = songLines[++currentIndex];
       } else if (!finalMessageShown) {
-        lyrics.textContent = songLines[songLines.length - 1];
-        createFlowers();
+        lyricText.textContent = songLines[songLines.length - 1];
+        showHeartFlowers();
         finalMessageShown = true;
       }
     }
-  </script></body>
-                                                         </html>
+
+    function showHeartFlowers() {
+      const emojis = ["🌸", "🌹", "🌼", "🌺", "🌻", "💐", "🌷"];
+      const heartContainer = document.getElementById("heartContainer");
+      heartContainer.innerHTML = '';
+      const numPoints = 80;
+      const heartPoints = [];
+      for (let i = 0; i < numPoints; i++) {
+        const t = i / numPoints * 2 * Math.PI;
+        const x = 16 * Math.pow(Math.sin(t), 3);
+        const y = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t);
+        const scaleFactor = 9.5;
+        heartPoints.push({
+          x: x * scaleFactor,
+          y: -y * scaleFactor,
+          delay: Math.random() * 1
+        });
+      }
+      heartPoints.forEach((point, i) => {
+        const flower = document.createElement("div");
+        flower.className = "flower";
+        flower.style.left = `${point.x + 140}px`;
+        flower.style.top = `${point.y + 140}px`;
+        flower.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        const sizeVariation = 0.8 + Math.random() * 0.4;
+        flower.style.fontSize = `${40 * sizeVariation}px`;
+        flower.style.animationDelay = `${point.delay}s`;
+        heartContainer.appendChild(flower);
+        setTimeout(() => {
+          flower.style.opacity = "1";
+        }, 60 * i);
+      });
+      heartContainer.style.animation = "bouquetReveal 1.5s ease forwards";
+    }
+  </script>
+</body>
+</html>
