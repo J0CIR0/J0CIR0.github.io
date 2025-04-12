@@ -1,11 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lee todo</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    .popup-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(58, 10, 22);
+    }.lyrics-box {
+  position: relative;
+  padding: 20px;
+  background-color: #ecc0c0; 
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  background-color: rgb(250, 245, 245);
+  border-radius: 50%;
+  padding: 5px;
+  z-index: 1; 
+}
+
+.close-icon {
+  font-size: 30px; 
+  color: white; 
+}
+
+.lyrics-large {
+  font-size: 40px;
+  text-align: center;
+  padding: 10px; 
+}
+
+.flower {
+  position: absolute;
+  font-size: 30px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+  </style>
 </head>
 <body>
-    <h1>hola mundo</h1>
-</body>
-</html>
+  <div class="popup-container">
+    <div class="lyrics-box">
+      <span class="close-btn" onclick="closeAlert()"><span class="close-icon">⭐</span></span>
+      <p class="lyrics-large">ve tocando la estrella</p>
+    </div>
+  </div>  <script>
+    var currentIndex = 0;
+    var finalMessageShown = false;
+
+    function createFlowers() {
+      for (let i = 0; i < 100; i++) {
+        let flower = document.createElement("div");
+        flower.classList.add("flower");
+        flower.innerHTML = "🌸"; // Flor emoji
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.top = Math.random() * 100 + "vh";
+        flower.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(flower);
+        setTimeout(() => flower.remove(), 5000);
+      }
+    }
+
+    function closeAlert() {
+      var lyrics = document.querySelector(".lyrics-large");
+      var songLines = [
+        "¡Feliz cumpleañooooooos!",
+        "Tal vez hoy no sea el mejor día...",
+        "Tal vez no sientas muchas ganas de celebrar.",
+        "Tal vez pensaste en no hacer nada.",
+        "Pero aun así, este día sigue siendo especial.",
+        "Porque hoy llegaste al mundo...",
+        "Y eso, nunca será poco.",
+        "Quisiera aprovechar este momento...",
+        "No solo para decirte cuánto te quiero,",
+        "sino también cuánto te admiro.",
+        "Sé por lo que estás pasando,",
+        "y sé que no es nada fácil.",
+        "Aun así, seguís de pie.",
+        "Y eso, te hace increíble.",
+        "Hoy no estoy ahí contigo...",
+        "Pero los días que compartimos fueron muy importantes para mí.",
+        "Gracias por todo lo que me diste,",
+        "por las risas, las charlas, y hasta los silencios.",
+        "Siempre te llevaré en mi corazón.",
+        "Y siempre te amaré por eso.",
+        "Hoy, deseo que puedas tener un momento de paz.",
+        "De calma, de amor... aunque sea contigo misma.",
+        "Intentá descansar, cuidarte, y sonreír si podés.",
+        "Ah sí... casi lo olvido JAJAJAJA",
+        "Nunca regalé flores en mi vida",
+        "Algún día lo haré, quizás con un ramo de verdad.",
+        "Pero lo que sí sé hacer... es programar JAJAJA",
+        "Y probablemente esto nadie te lo hizo antes JAJA x2",
+        "Así que... aquí están tus flores digitales:",
+        "FELIZ CUMPLEAÑOS, TE AMO"
+      ];
+
+      if (currentIndex < songLines.length - 1) {
+        lyrics.textContent = songLines[++currentIndex];
+      } else if (!finalMessageShown) {
+        lyrics.textContent = songLines[songLines.length - 1];
+        createFlowers();
+        finalMessageShown = true;
+      }
+    }
+  </script></body>
+                                                         </html>
