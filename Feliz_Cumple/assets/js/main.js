@@ -69,5 +69,12 @@ $(document).ready(function () {
 
     activarInteraccionFotos();
 
-    $('.marco-polaroid').css('pointer-events', 'auto');
+    $('.dia-cumpleanos').click(function () {
+        $('.sobre').css({ 'animation': 'caida 3s linear 1', '-webkit-animation': 'caida 3s linear 1' });
+        $('.sobre').fadeOut(800, function () {
+            $('.dia-cumpleanos .texto, .dia-cumpleanos .frente, .dia-cumpleanos .confeti').hide();
+            $('#tarjeta').addClass('entrada-activa');
+            $('body').addClass('carta-abierta');
+        });
+    });
 });
