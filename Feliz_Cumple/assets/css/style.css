@@ -681,32 +681,32 @@ body.foto-activa #tarjeta {
   
   .frente {
     border-right: 148px solid #fbd2d2;
-    border-top: 88px solid transparent;
+    border-top: 90px solid transparent;
     border-bottom: 88px solid transparent;
-    top: 34px;
-    left: 62px;
+    top: 62px;
+    left: 92px;
   }
   
   .frente:before {
     border-left: 148px solid #fbd2d2;
-    border-top: 88px solid transparent;
+    border-top: 93px solid transparent;
     border-bottom: 88px solid transparent;
-    top: -88px;
+    top: -89px;
     left: -132px;
   }
   
   .frente:after {
-    border-bottom: 117px solid #fce7e9;
-    border-right: 140px solid transparent;
+    border-bottom: 146px solid #fce7e9;
+    border-right: 145px solid transparent;
     border-left: 140px solid transparent;
-    top: -28px;
-    left: -132px;
+    top: -57px;
+    left: -135px;
   }
   
   .texto {
     font-size: 0.7rem;
     top: 60px;
-    left: 5px;
+    left: 25px;
     letter-spacing: 1.5px;
   }
 
