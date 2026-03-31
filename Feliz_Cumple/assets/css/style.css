@@ -76,11 +76,11 @@ body {
   position: absolute;
   width: 0;
   height: 0;
-  border-right: 190px solid #fbd2d2;
+  border-right: 170px solid #fbd2d2;
   border-top: 113px solid transparent;
   border-bottom: 113px solid transparent;
-  top: 44px;
-  left: 80px;
+  top: 95px;
+  left: 150px;
   z-index: 4;
 }
 
@@ -92,8 +92,8 @@ body {
   border-left: 190px solid #fbd2d2;
   border-top: 113px solid transparent;
   border-bottom: 113px solid transparent;
-  top: -113px;
-  left: -170px;
+  top: -115px;
+  left: -191px;
 }
 
 .frente:after {
@@ -102,10 +102,10 @@ body {
   position: absolute;
   content: "";
   border-bottom: 150px solid #fce7e9;
-  border-right: 180px solid transparent;
+  border-right: 187px solid transparent;
   border-left: 180px solid transparent;
-  top: -36px;
-  left: -170px;
+  top: -37px;
+  left: -195px;
 }
 
 .texto {
@@ -116,7 +116,7 @@ body {
   color: white;
   z-index: 2;
   top: 80px;
-  left: 15px;
+  left: 35px;
   transition: 0.5s;
   font-size: 1rem;
   font-weight: bold;
@@ -554,11 +554,11 @@ body.foto-activa #tarjeta {
   }
   
   .frente {
-    border-right: 169px solid #fbd2d2;
+    border-right: 199px solid #fbd2d2;
     border-top: 100px solid transparent;
     border-bottom: 100px solid transparent;
-    top: 39px;
-    left: 71px;
+    top: 80px;
+    left: 82px;
   }
   
   .frente:before {
@@ -566,15 +566,15 @@ body.foto-activa #tarjeta {
     border-top: 100px solid transparent;
     border-bottom: 100px solid transparent;
     top: -100px;
-    left: -151px;
+    left: -124px;
   }
   
   .frente:after {
-    border-bottom: 133px solid #fce7e9;
-    border-right: 160px solid transparent;
+    border-bottom: 153px solid #fce7e9;
+    border-right: 170px solid transparent;
     border-left: 160px solid transparent;
-    top: -32px;
-    left: -151px;
+    top: -51px;
+    left: -128px;
   }
   
   .texto {
