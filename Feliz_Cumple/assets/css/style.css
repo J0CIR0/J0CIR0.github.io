@@ -1,100 +1,42 @@
 @import url("https://fonts.googleapis.com/css?family=Sacramento");
 
-#tarjeta {
-  height: min(74vh, 640px);
-  width: min(650px, 90vw);
-  margin: auto;
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 8;
-  perspective: 1200px;
-}
-
-/* Estilos para dispositivos móviles */
-@media only screen and (max-width: 600px) {
-  #tarjeta {
-    width: 92vw;
-    height: auto;
-    margin: 0;
-    position: fixed;
-    inset: auto;
-    top: 16vh;
-    left: 50%;
-    transform: translateX(-50%);
-    max-height: 46vh;
-    overflow: visible;
-  }
-
-  #tarjeta p {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-    font-size: 1.08em !important;
-  }
-
-  .dia-san-valentin {
-    position: fixed;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-#tarjeta h2 {
-  font-size: 3em;
+* {
   margin: 0;
-  color: pink;
-  text-align: center;
-}
-
-#tarjeta p {
-  font-size: 1.3em;
-  text-align: justify;
-  padding-left: 20px; /* Espacio en blanco a la izquierda */
-  padding-right: 20px; /* Espacio en blanco a la derecha */
-}
-
-.lado {
-  background: #eee;
-  height: 100%;
-  padding: 16px;
-  border-radius: 24px;
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
-}
-
-.lado.dos {
-  width: min(640px, 92vw);
-  margin: 0 auto;
-  background: linear-gradient(160deg, #fff8f8, #fff2e6 55%, #ffe9ef);
-  overflow-y: auto;
-  overflow-x: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Sacramento", cursive;
   background: radial-gradient(circle at 20% 10%, #ffd6d6 0%, transparent 24%),
     radial-gradient(circle at 80% 85%, #ffe8d4 0%, transparent 28%),
     linear-gradient(160deg, #f4decd 0%, #f2d4d8 45%, #efddcc 100%);
   overflow-x: hidden;
+  padding: 16px;
+  position: relative;
 }
 
-.dia-san-valentin {
+.dia-cumpleanos {
   position: relative;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
 }
 
 .sobre {
   position: relative;
   filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.3));
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
 }
 
 .sobre:before {
@@ -198,14 +140,114 @@ body {
   top: 80px;
   left: 15px;
   transition: 0.5s;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-.dia-san-valentin:hover .corazon {
+.confeti {
+  position: absolute;
+  font-size: 24px;
+  animation: flotarConfeti 3s ease-in-out infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.confeti-1 { top: -20px; left: 10%; animation-delay: 0s; }
+.confeti-2 { top: -30px; left: 30%; animation-delay: 0.5s; }
+.confeti-3 { top: -15px; left: 50%; animation-delay: 1s; }
+.confeti-4 { top: -25px; left: 70%; animation-delay: 1.5s; }
+.confeti-5 { top: -10px; left: 85%; animation-delay: 2s; }
+
+@keyframes flotarConfeti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(300px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.dia-cumpleanos:hover .corazon {
   transform: translateY(-50px) rotate(-45deg);
 }
 
-.dia-san-valentin:hover .texto {
+.dia-cumpleanos:hover .texto {
   transform: translateY(-50px);
+}
+
+#tarjeta {
+  height: auto;
+  width: min(650px, 92vw);
+  margin: auto;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 8;
+  perspective: 1200px;
+  padding: 20px;
+}
+
+.lado {
+  background: #eee;
+  height: 100%;
+  padding: 24px 20px;
+  border-radius: 24px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+}
+
+.lado.dos {
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(160deg, #fff8f8, #fff2e6 55%, #ffe9ef);
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  max-height: 70vh;
+}
+
+#tarjeta h2 {
+  font-size: clamp(2rem, 8vw, 3rem);
+  margin: 0 0 12px 0;
+  color: pink;
+  text-align: center;
+}
+
+#tarjeta p {
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  text-align: justify;
+  padding: 0 16px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.corazones-decorativos {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  letter-spacing: 10px;
+}
+
+.corazones-decorativos span {
+  display: inline-block;
+  animation: latir 1s ease-in-out infinite;
+}
+
+.corazones-decorativos span:nth-child(1) { animation-delay: 0s; }
+.corazones-decorativos span:nth-child(2) { animation-delay: 0.2s; }
+.corazones-decorativos span:nth-child(3) { animation-delay: 0.4s; }
+.corazones-decorativos span:nth-child(4) { animation-delay: 0.6s; }
+.corazones-decorativos span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes latir {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
 }
 
 #tarjeta.entrada-activa {
@@ -226,11 +268,12 @@ body {
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 9;
+  padding: 16px;
 }
 
 .marco-polaroid {
   position: absolute;
-  width: 158px;
+  width: clamp(100px, 22vw, 158px);
   text-decoration: none;
   color: #3b2f2f;
   background: #ffffff;
@@ -267,7 +310,7 @@ body {
 .polaroid-frente span {
   display: block;
   margin-top: 8px;
-  font-size: 1.2em;
+  font-size: clamp(0.85rem, 3vw, 1.2rem);
   text-align: center;
 }
 
@@ -286,7 +329,7 @@ body {
 }
 
 .polaroid-dorso p {
-  font-size: 1.1em;
+  font-size: clamp(0.8rem, 2.8vw, 1.1rem);
   line-height: 1.2;
   margin: 0;
   color: #7a2e2e;
@@ -315,21 +358,21 @@ body.carta-abierta .marco-polaroid:nth-child(6) { animation-delay: 0.42s, 1.45s;
 body.carta-abierta .marco-polaroid:nth-child(7) { animation-delay: 0.5s, 1.5s; }
 body.carta-abierta .marco-polaroid:nth-child(8) { animation-delay: 0.58s, 1.55s; }
 
-.posicion-1 { top: 6%; left: 4%; --rotacion: -11deg; }
-.posicion-2 { top: 3%; left: 38%; --rotacion: 8deg; }
-.posicion-3 { top: 7%; left: 56%; --rotacion: -6deg; }
-.posicion-4 { top: 4%; left: 74%; --rotacion: 9deg; }
-.posicion-5 { bottom: 4%; left: 18%; --rotacion: 6deg; }
-.posicion-6 { bottom: 7%; left: 36%; --rotacion: -7deg; }
-.posicion-7 { bottom: 5%; left: 54%; --rotacion: -10deg; }
-.posicion-8 { bottom: 8%; left: 72%; --rotacion: 10deg; }
+.posicion-1 { top: 3%; left: 2%; --rotacion: -11deg; }
+.posicion-2 { top: 2%; left: 28%; --rotacion: 8deg; }
+.posicion-3 { top: 4%; left: 52%; --rotacion: -6deg; }
+.posicion-4 { top: 2.5%; left: 76%; --rotacion: 9deg; }
+.posicion-5 { bottom: 3%; left: 5%; --rotacion: 6deg; }
+.posicion-6 { bottom: 5%; left: 31%; --rotacion: -7deg; }
+.posicion-7 { bottom: 3.5%; left: 56%; --rotacion: -10deg; }
+.posicion-8 { bottom: 5%; left: 81%; --rotacion: 10deg; }
 
 .marco-polaroid.foto-enfocada {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: min(340px, 78vw);
-  transform: translate(-50%, -50%) scale(1.85) rotate(0deg);
+  width: min(340px, 85vw);
+  transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
   z-index: 30;
   box-shadow: 0 24px 45px rgba(0, 0, 0, 0.42);
 }
@@ -348,6 +391,43 @@ body.foto-activa .marco-polaroid:not(.foto-enfocada) {
   opacity: 0.16;
   pointer-events: none;
   animation-play-state: paused;
+}
+
+.globos {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.globo {
+  position: absolute;
+  font-size: 40px;
+  bottom: -50px;
+  animation: subirGlobo 8s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.globo-1 { left: 5%; animation-duration: 7s; animation-delay: 0s; }
+.globo-2 { left: 15%; animation-duration: 9s; animation-delay: 1s; }
+.globo-3 { left: 30%; animation-duration: 8s; animation-delay: 2s; }
+.globo-4 { left: 50%; animation-duration: 10s; animation-delay: 0.5s; }
+.globo-5 { left: 70%; animation-duration: 8.5s; animation-delay: 1.5s; }
+.globo-6 { left: 85%; animation-duration: 7.5s; animation-delay: 2.5s; }
+
+@keyframes subirGlobo {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(20deg);
+    opacity: 0;
+  }
 }
 
 @keyframes entradaTarjeta {
@@ -437,81 +517,203 @@ body.foto-activa .marco-polaroid:not(.foto-enfocada) {
   }
 }
 
-/* Estilos para dispositivos móviles */
-@media screen and (max-width: 600px) {
-  #tarjeta {
-    width: 92vw;
-    max-width: 92vw;
-    margin: 0;
+@media screen and (max-width: 768px) {
+  body {
+    padding: 12px;
+    align-items: flex-start;
+    padding-top: 5vh;
   }
 
-  .lado {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    height: auto;
-    padding: 14px 14px 12px;
-    border-radius: 18px;
+  .dia-cumpleanos {
+    transform: scale(0.85);
+    margin-top: 20px;
+  }
+
+  #tarjeta {
+    width: 95vw;
+    padding: 12px;
   }
 
   .lado.dos {
-    width: 100%;
-    max-height: 44vh;
-  }
-
-  #tarjeta h2 {
-    font-size: 2.3em;
+    max-height: 65vh;
+    padding: 20px 12px;
   }
 
   #tarjeta p {
-    font-size: 1.08em;
-    line-height: 1.18;
+    padding: 0 8px;
+    font-size: 1rem;
+    line-height: 1.4;
   }
 
-  .muro-polaroid {
-    display: block;
-    z-index: 12;
+  #tarjeta h2 {
+    font-size: 2rem;
+  }
+
+  .corazones-decorativos {
+    font-size: 20px;
+    letter-spacing: 8px;
   }
 
   .marco-polaroid {
-    width: 22vw;
-    min-width: 92px;
-    max-width: 118px;
+    width: clamp(85px, 20vw, 130px);
+    padding: 6px 6px 9px;
   }
 
-  .posicion-1 { top: 3.5%; left: 4%; --rotacion: -8deg; }
-  .posicion-2 { top: 2%; left: 27%; --rotacion: 6deg; }
-  .posicion-3 { top: 4%; left: 50%; --rotacion: -5deg; }
-  .posicion-4 { top: 2.5%; left: 73%; --rotacion: 7deg; }
-  .posicion-5 { bottom: 2.5%; left: 5%; --rotacion: 6deg; }
-  .posicion-6 { bottom: 5.5%; left: 28%; --rotacion: -6deg; }
-  .posicion-7 { bottom: 3.5%; left: 51%; --rotacion: 5deg; }
-  .posicion-8 { bottom: 6%; left: 74%; --rotacion: -7deg; }
+  .polaroid-dorso p {
+    font-size: 0.75rem;
+    padding: 4px;
+  }
+
+  .polaroid-frente span {
+    font-size: 0.75rem;
+    margin-top: 6px;
+  }
+
+  .posicion-1 { top: 2%; left: 1%; --rotacion: -8deg; }
+  .posicion-2 { top: 1.5%; left: 26%; --rotacion: 6deg; }
+  .posicion-3 { top: 3%; left: 51%; --rotacion: -5deg; }
+  .posicion-4 { top: 2%; left: 76%; --rotacion: 7deg; }
+  .posicion-5 { bottom: 2%; left: 3%; --rotacion: 5deg; }
+  .posicion-6 { bottom: 4%; left: 28%; --rotacion: -6deg; }
+  .posicion-7 { bottom: 2.5%; left: 54%; --rotacion: -8deg; }
+  .posicion-8 { bottom: 4%; left: 79%; --rotacion: 8deg; }
 
   .marco-polaroid.foto-enfocada {
-    width: min(300px, 84vw);
-    transform: translate(-50%, -50%) scale(1.24) rotate(0deg);
+    width: min(320px, 90vw);
+    transform: translate(-50%, -50%) scale(1.2);
   }
 
   .texto {
-    font-size: 1em; /* Ajuste del tamaño de fuente */
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    top: 70px;
+    left: 10px;
+  }
+
+  .globo {
+    font-size: 30px;
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 480px) {
+  body {
+    padding: 8px;
+    padding-top: 3vh;
+  }
+
+  .dia-cumpleanos {
+    transform: scale(0.7);
+    margin-top: 0;
+  }
+
+  .texto {
+    font-size: 0.7rem;
+    top: 65px;
+    left: 5px;
+    letter-spacing: 1.5px;
+  }
+
+  .confeti {
+    font-size: 18px;
+  }
+
+  #tarjeta {
+    width: 98vw;
+  }
+
   .lado.dos {
-    max-height: 42vh;
+    max-height: 60vh;
+    padding: 16px 8px;
+  }
+
+  #tarjeta p {
+    font-size: 0.95rem;
+    padding: 0 6px;
+    line-height: 1.35;
+  }
+
+  #tarjeta h2 {
+    font-size: 1.8rem;
+  }
+
+  .corazones-decorativos {
+    font-size: 18px;
+    letter-spacing: 6px;
   }
 
   .marco-polaroid {
-    width: 21.5vw;
-    min-width: 82px;
-    max-width: 102px;
+    width: clamp(75px, 18vw, 100px);
+    padding: 5px 5px 7px;
+  }
+
+  .polaroid-dorso p {
+    font-size: 0.7rem;
+    line-height: 1.15;
+  }
+
+  .polaroid-frente span {
+    font-size: 0.7rem;
+  }
+
+  .posicion-1 { top: 1.5%; left: 0%; --rotacion: -6deg; }
+  .posicion-2 { top: 1%; left: 24%; --rotacion: 5deg; }
+  .posicion-3 { top: 2.5%; left: 49%; --rotacion: -4deg; }
+  .posicion-4 { top: 1.5%; left: 74%; --rotacion: 6deg; }
+  .posicion-5 { bottom: 1.5%; left: 2%; --rotacion: 4deg; }
+  .posicion-6 { bottom: 3%; left: 26%; --rotacion: -5deg; }
+  .posicion-7 { bottom: 2%; left: 52%; --rotacion: -6deg; }
+  .posicion-8 { bottom: 3%; left: 77%; --rotacion: 7deg; }
+
+  .marco-polaroid.foto-enfocada {
+    width: min(300px, 92vw);
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+
+  .globo {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .marco-polaroid {
+    width: clamp(70px, 17vw, 85px);
+  }
+  
+  .polaroid-dorso p {
+    font-size: 0.65rem;
+  }
+  
+  .posicion-1, .posicion-2, .posicion-3, .posicion-4,
+  .posicion-5, .posicion-6, .posicion-7, .posicion-8 {
+    top: auto;
+    bottom: auto;
+  }
+  
+  .posicion-1 { top: 1%; left: 0%; }
+  .posicion-2 { top: 0.5%; left: 23%; }
+  .posicion-3 { top: 2%; left: 48%; }
+  .posicion-4 { top: 1%; left: 73%; }
+  .posicion-5 { bottom: 1%; left: 1%; }
+  .posicion-6 { bottom: 2.5%; left: 25%; }
+  .posicion-7 { bottom: 1.5%; left: 51%; }
+  .posicion-8 { bottom: 2.5%; left: 76%; }
+  
+  .texto {
+    font-size: 0.6rem;
+    top: 60px;
+  }
+
+  .globo {
+    font-size: 22px;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .marco-polaroid {
     width: 170px;
+  }
+  
+  #tarjeta p {
+    font-size: 1.3rem;
   }
 }

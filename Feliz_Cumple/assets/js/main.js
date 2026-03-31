@@ -38,22 +38,17 @@ $(document).ready(function () {
         });
     }
 
-    // Al cargar la página, ocultamos las cortinas
     $('.cortina-izquierda').css('width', '0%');
     $('.cortina-derecha').css('width', '0%');
 
     activarInteraccionFotos();
 
-    $('.dia-san-valentin').click(function () {
-        // Animación de desvanecimiento de los elementos del sobre
+    $('.dia-cumpleanos').click(function () {
         $('.sobre').css({ 'animation': 'caida 3s linear 1', '-webkit-animation': 'caida 3s linear 1' });
         $('.sobre').fadeOut(800, function () {
-            // Ocultar elementos dentro de .dia-san-valentin
-            $('.dia-san-valentin .corazon, .dia-san-valentin .texto, .dia-san-valentin .frente').hide();
-
-            // Hacer visible la carta con una animación de entrada más elaborada
+            $('.dia-cumpleanos .corazon, .dia-cumpleanos .texto, .dia-cumpleanos .frente, .dia-cumpleanos .confeti').hide();
             $('#tarjeta').addClass('entrada-activa');
             $('body').addClass('carta-abierta');
         });
     });
-}); 
+});
