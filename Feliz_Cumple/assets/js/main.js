@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var fotoActiva = null;
-    var temporizadorFoto = null;
+    var temporizadorRegreso = null;
     var musicaActiva = false;
     var audioElement = document.getElementById('musicaFondo');
 
@@ -8,13 +8,23 @@ $(document).ready(function () {
         if (!fotoActiva) {
             return;
         }
-        fotoActiva.removeClass('foto-enfocada');
-        $('body').removeClass('foto-activa');
+        
+        var $foto = fotoActiva;
         fotoActiva = null;
-        if (temporizadorFoto) {
-            clearTimeout(temporizadorFoto);
-            temporizadorFoto = null;
+        
+        $foto.removeClass('foto-activada');
+        $('body').removeClass('foto-activa');
+        
+        if (temporizadorRegreso) {
+            clearTimeout(temporizadorRegreso);
+            temporizadorRegreso = null;
         }
+        
+        var $contenido = $foto.find('.polaroid-contenido');
+        $contenido.css('animation', '');
+        setTimeout(function() {
+            $contenido.css('animation', '');
+        }, 50);
     }
 
     function activarInteraccionFotos() {
@@ -22,24 +32,28 @@ $(document).ready(function () {
             evento.preventDefault();
             evento.stopPropagation();
 
-            if ($(this).hasClass('foto-enfocada')) {
+            if ($(this).hasClass('foto-activada')) {
                 return;
             }
 
-            if (temporizadorFoto) {
-                clearTimeout(temporizadorFoto);
-                temporizadorFoto = null;
+            if (temporizadorRegreso) {
+                clearTimeout(temporizadorRegreso);
+                temporizadorRegreso = null;
             }
 
             restaurarFotoPrincipal();
             fotoActiva = $(this);
             $('body').addClass('foto-activa');
-            fotoActiva.addClass('foto-enfocada');
-
-            temporizadorFoto = setTimeout(function () {
+            fotoActiva.addClass('foto-activada');
+            
+            var $contenido = fotoActiva.find('.polaroid-contenido');
+            $contenido.css('animation', 'mostrarDorso 5s ease forwards');
+            $contenido.css('animation-delay', '2s');
+            
+            temporizadorRegreso = setTimeout(function () {
                 restaurarFotoPrincipal();
-                temporizadorFoto = null;
-            }, 1000);
+                temporizadorRegreso = null;
+            }, 7000);
         });
     }
 
@@ -73,6 +87,7 @@ $(document).ready(function () {
         $('.sobre').css({ 'animation': 'caida 3s linear 1', '-webkit-animation': 'caida 3s linear 1' });
         $('.sobre').fadeOut(800, function () {
             $('.dia-cumpleanos .texto, .dia-cumpleanos .frente, .dia-cumpleanos .confeti').hide();
+            $('.contenedor-sobre').fadeOut(500);
             $('#tarjeta').addClass('entrada-activa');
             $('body').addClass('carta-abierta');
         });

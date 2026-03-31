@@ -16,8 +16,20 @@ body {
     radial-gradient(circle at 80% 85%, #ffe8d4 0%, transparent 28%),
     linear-gradient(160deg, #f4decd 0%, #f2d4d8 45%, #efddcc 100%);
   overflow-x: hidden;
-  padding: 16px;
   position: relative;
+}
+
+.contenedor-sobre {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
 }
 
 .dia-cumpleanos {
@@ -26,9 +38,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 380px;
-  margin: 0 auto;
+  width: 280px;
+  height: 280px;
+  pointer-events: auto;
 }
 
 .sobre {
@@ -36,7 +48,6 @@ body {
   filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.3));
   width: 180px;
   height: 180px;
-  margin: 0 auto;
 }
 
 .sobre:before {
@@ -155,6 +166,7 @@ body {
   z-index: 8;
   perspective: 1200px;
   padding: 20px;
+  pointer-events: none;
 }
 
 .lado {
@@ -215,6 +227,8 @@ body {
 
 #tarjeta.entrada-activa {
   visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
   animation: entradaTarjeta 1.2s cubic-bezier(0.21, 0.9, 0.25, 1) forwards,
     flotarTarjeta 4s ease-in-out 1.3s infinite;
 }
@@ -287,6 +301,7 @@ body {
 body.carta-abierta .muro-polaroid {
   visibility: visible;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .marco-polaroid {
@@ -369,7 +384,7 @@ body.carta-abierta .muro-polaroid {
   box-shadow: 0 16px 24px rgba(0, 0, 0, 0.22);
 }
 
-.marco-polaroid.foto-enfocada {
+.marco-polaroid.foto-activada {
   position: fixed !important;
   top: 50% !important;
   left: 50% !important;
@@ -380,25 +395,30 @@ body.carta-abierta .muro-polaroid {
   animation: none !important;
   margin: 0 !important;
   pointer-events: auto;
+  transition: transform 0.3s ease;
 }
 
-.marco-polaroid.foto-enfocada .polaroid-contenido {
-  animation: voltearFoto 1s ease forwards;
+.marco-polaroid.foto-activada .polaroid-contenido {
+  animation: mostrarDorso 5s ease forwards;
+  animation-delay: 2s;
 }
 
-@keyframes voltearFoto {
+@keyframes mostrarDorso {
   0% {
     transform: rotateY(0deg);
   }
-  40% {
+  10% {
+    transform: rotateY(180deg);
+  }
+  90% {
     transform: rotateY(180deg);
   }
   100% {
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
   }
 }
 
-body.foto-activa .muro-polaroid .marco-polaroid:not(.foto-enfocada) {
+body.foto-activa .muro-polaroid .marco-polaroid:not(.foto-activada) {
   opacity: 0.2;
   pointer-events: none;
   animation-play-state: paused;
@@ -508,17 +528,66 @@ body.foto-activa #tarjeta {
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    padding: 12px;
-    align-items: flex-start;
-    padding-top: 5vh;
-  }
-
   .dia-cumpleanos {
-    transform: scale(0.85);
-    margin-top: 20px;
+    width: 240px;
+    height: 240px;
+    transform: scale(0.9);
   }
-
+  
+  .sobre {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .sobre:before {
+    width: 226px;
+    height: 226px;
+    left: -33px;
+    top: -73px;
+  }
+  
+  .sobre:after {
+    width: 320px;
+    height: 200px;
+    left: -80px;
+    top: 40px;
+  }
+  
+  .frente {
+    border-right: 169px solid #fbd2d2;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    top: 39px;
+    left: 71px;
+  }
+  
+  .frente:before {
+    border-left: 169px solid #fbd2d2;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    top: -100px;
+    left: -151px;
+  }
+  
+  .frente:after {
+    border-bottom: 133px solid #fce7e9;
+    border-right: 160px solid transparent;
+    border-left: 160px solid transparent;
+    top: -32px;
+    left: -151px;
+  }
+  
+  .texto {
+    font-size: 0.85rem;
+    top: 70px;
+    left: 10px;
+    letter-spacing: 2px;
+  }
+  
+  .confeti {
+    font-size: 18px;
+  }
+  
   #tarjeta {
     width: 95vw;
     padding: 12px;
@@ -568,19 +637,8 @@ body.foto-activa #tarjeta {
   .posicion-7 { bottom: 2.5%; left: 54%; --rotacion: -8deg; }
   .posicion-8 { bottom: 4%; left: 79%; --rotacion: 8deg; }
 
-  .marco-polaroid.foto-enfocada {
+  .marco-polaroid.foto-activada {
     width: min(340px, 90vw) !important;
-  }
-
-  .texto {
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    top: 70px;
-    left: 10px;
-  }
-
-  .confeti {
-    font-size: 18px;
   }
 
   .globo {
@@ -596,19 +654,58 @@ body.foto-activa #tarjeta {
 }
 
 @media screen and (max-width: 480px) {
-  body {
-    padding: 8px;
-    padding-top: 3vh;
-  }
-
   .dia-cumpleanos {
-    transform: scale(0.7);
-    margin-top: 0;
+    width: 200px;
+    height: 200px;
+    transform: scale(0.8);
   }
-
+  
+  .sobre {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .sobre:before {
+    width: 198px;
+    height: 198px;
+    left: -29px;
+    top: -64px;
+  }
+  
+  .sobre:after {
+    width: 280px;
+    height: 175px;
+    left: -70px;
+    top: 35px;
+  }
+  
+  .frente {
+    border-right: 148px solid #fbd2d2;
+    border-top: 88px solid transparent;
+    border-bottom: 88px solid transparent;
+    top: 34px;
+    left: 62px;
+  }
+  
+  .frente:before {
+    border-left: 148px solid #fbd2d2;
+    border-top: 88px solid transparent;
+    border-bottom: 88px solid transparent;
+    top: -88px;
+    left: -132px;
+  }
+  
+  .frente:after {
+    border-bottom: 117px solid #fce7e9;
+    border-right: 140px solid transparent;
+    border-left: 140px solid transparent;
+    top: -28px;
+    left: -132px;
+  }
+  
   .texto {
     font-size: 0.7rem;
-    top: 65px;
+    top: 60px;
     left: 5px;
     letter-spacing: 1.5px;
   }
@@ -660,7 +757,7 @@ body.foto-activa #tarjeta {
   .posicion-7 { bottom: 2%; left: 52%; --rotacion: -6deg; }
   .posicion-8 { bottom: 3%; left: 77%; --rotacion: 7deg; }
 
-  .marco-polaroid.foto-enfocada {
+  .marco-polaroid.foto-activada {
     width: min(300px, 92vw) !important;
   }
 
@@ -689,7 +786,7 @@ body.foto-activa #tarjeta {
   
   .texto {
     font-size: 0.6rem;
-    top: 60px;
+    top: 55px;
   }
 
   .globo {
