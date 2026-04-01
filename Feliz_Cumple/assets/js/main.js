@@ -1,8 +1,46 @@
 $(document).ready(function () {
     var fotoActiva = null;
     var temporizadorRegreso = null;
-    var musicaActiva = false;
     var audioElement = document.getElementById('musicaFondo');
+    var canciones = [
+        "assets/sound/felizcumple.mpeg",
+        "assets/sound/mividaentera.mpeg"
+    ];
+    var cancionActual = 0;
+
+    function reproducirSiguienteCancion() {
+        cancionActual++;
+        if (cancionActual >= canciones.length) {
+            cancionActual = 1;
+        }
+        audioElement.src = canciones[cancionActual];
+        audioElement.load();
+        audioElement.play().catch(function(error) {
+            console.log("Error al reproducir audio:", error);
+        });
+    }
+
+    function iniciarMusicaAutomatica() {
+        if (audioElement) {
+            audioElement.src = canciones[0];
+            audioElement.load();
+            audioElement.play().then(function() {
+                console.log("Reproduciendo: felizcumple.mpeg");
+            }).catch(function(error) {
+                console.log("Error al reproducir audio automáticamente:", error);
+                $(document).one('click', function() {
+                    audioElement.play().catch(function(e) {
+                        console.log("Error:", e);
+                    });
+                });
+            });
+        }
+    }
+
+    // Cuando termine una canción, pasar a la siguiente
+    audioElement.addEventListener('ended', function() {
+        reproducirSiguienteCancion();
+    });
 
     function restaurarFotoPrincipal() {
         if (!fotoActiva) {
@@ -57,30 +95,6 @@ $(document).ready(function () {
         });
     }
 
-    function iniciarMusica() {
-        if (audioElement && !musicaActiva) {
-            audioElement.play().then(function() {
-                musicaActiva = true;
-                $('#botonMusica').addClass('activo');
-                $('#botonMusica i').removeClass('fa-music').addClass('fa-pause');
-                $('#botonMusica').html('<i class="fas fa-pause"></i> Pausar Música');
-            }).catch(function(error) {
-                console.log("Error al reproducir audio:", error);
-            });
-        } else if (audioElement && musicaActiva) {
-            audioElement.pause();
-            musicaActiva = false;
-            $('#botonMusica').removeClass('activo');
-            $('#botonMusica i').removeClass('fa-pause').addClass('fa-music');
-            $('#botonMusica').html('<i class="fas fa-music"></i> Activar Música');
-        }
-    }
-
-    $('#botonMusica').click(function(e) {
-        e.stopPropagation();
-        iniciarMusica();
-    });
-
     activarInteraccionFotos();
 
     $('.dia-cumpleanos').click(function () {
@@ -92,4 +106,5 @@ $(document).ready(function () {
             $('body').addClass('carta-abierta');
         });
     });
+    iniciarMusicaAutomatica();
 });
