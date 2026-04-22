@@ -198,8 +198,8 @@ body {
   font-size: clamp(1rem, 4vw, 1.3rem);
   text-align: justify;
   padding: 0 16px;
-  line-height: 1.4;
-  margin-bottom: 16px;
+  line-height: 1.15;
+  margin-bottom: 10px;
 }
 
 .corazones-decorativos {
@@ -601,7 +601,7 @@ body.foto-activa #tarjeta {
   #tarjeta p {
     padding: 0 8px;
     font-size: 1rem;
-    line-height: 1.4;
+    line-height: 0.98;
   }
 
   #tarjeta h2 {
@@ -722,7 +722,7 @@ body.foto-activa #tarjeta {
   #tarjeta p {
     font-size: 0.95rem;
     padding: 0 6px;
-    line-height: 1.35;
+    line-height: 1.12;
   }
 
   #tarjeta h2 {
